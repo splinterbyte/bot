@@ -15,7 +15,7 @@ import logging
 
 async def start_bot(bot: Bot):
     await set_commands(bot)
-    # await bot.send_message(settings.bots.admin_id, text='BOT IS RUNNING')
+    await bot.send_message(settings.bots.admin_id, text='BOT IS RUNNING')
     
 
 async def start():
