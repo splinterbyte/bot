@@ -38,6 +38,7 @@ async def start():
     dp.message.register(formatfilters.check_photo, lambda message: not message.photo)
     dp.message.register(form.get_photo, States.GET_PHOTO)
     
+    # привет
     
     try:
         await dp.start_polling(bot)
