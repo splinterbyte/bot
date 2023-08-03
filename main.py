@@ -8,15 +8,14 @@ from core.handlers import form
 from core.utils.statesform import States
 from core.filters import formatfilters 
 
-
-
 import asyncio
 import logging
 
 async def start_bot(bot: Bot):
     await set_commands(bot)
     await bot.send_message(settings.bots.admin_id, text='BOT IS RUNNING')
-    
+    # It's skip_updates
+    await bot.delete_webhook(drop_pending_updates=True)
 
 async def start():
     logging.basicConfig(level=logging.INFO)
@@ -38,8 +37,8 @@ async def start():
     dp.message.register(formatfilters.check_photo, lambda message: not message.photo)
     dp.message.register(form.get_photo, States.GET_PHOTO)
     
-    # привет
-    
+    # привет Влад
+
     try:
         await dp.start_polling(bot)
     finally:

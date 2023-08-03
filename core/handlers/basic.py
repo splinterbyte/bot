@@ -16,7 +16,7 @@ async def descr_command(message: Message, bot: Bot):
 async def your_site(message: Message, bot: Bot):
     builder = InlineKeyboardBuilder()
     builder.row(types.InlineKeyboardButton(
-        text="Launch app", web_app=WebAppInfo(url='https://ae70-109-111-146-53.ngrok-free.app'))
+        text="Launch app", web_app=WebAppInfo(url='http://45.153.70.246:3000/'))
     )
     await message.answer(
         'Launch app',
