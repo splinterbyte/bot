@@ -16,10 +16,12 @@ async def descr_command(message: Message, bot: Bot):
 async def your_site(message: Message, bot: Bot):
     builder = InlineKeyboardBuilder()
     builder.row(types.InlineKeyboardButton(
-        text="Launch app", web_app=WebAppInfo(url='http://45.153.70.246:3000/'))
+        text="Открыть конструктор", web_app=WebAppInfo(url='https://45.153.70.246:80/')
+        # text="Открыть конструктор", web_app=WebAppInfo(url='https://45.153.70.246:80/')
+        )
     )
     await message.answer(
-        'Launch app',
+        'Для того чтобы открыть конструктор, нажми кнопку',
         reply_markup=builder.as_markup(),
     )
    
