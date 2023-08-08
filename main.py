@@ -14,8 +14,7 @@ import logging
 async def start_bot(bot: Bot):
     await set_commands(bot)
     await bot.send_message(settings.bots.admin_id, text='BOT IS RUNNING')
-    # It's skip_updates
-    await bot.delete_webhook(drop_pending_updates=True)
+    await bot.delete_webhook(drop_pending_updates=True)    # It's skip_updates
 
 async def start():
     logging.basicConfig(level=logging.INFO)
@@ -26,10 +25,10 @@ async def start():
     dp.startup.register(start_bot)
     
     dp.message.register(get_start, Command(commands=['start']))
-    dp.message.register(your_site, Command(commands=['your_site']))
+    dp.message.register(open_constructor, Command(commands=['constructor']))
     dp.message.register(descr_command, Command(commands='description'))    
-    # dp.message.register(form.get_form, Command(commands='new_post'))
-    # dp.message.register(form.get_form, F.text == 'Создать новый пост')
+
+
 
 
     # dp.message.register(form.get_postname, States.GET_POSTNAME)
@@ -37,8 +36,6 @@ async def start():
     # dp.message.register(formatfilters.check_photo, lambda message: not message.photo)
     # dp.message.register(form.get_photo, States.GET_PHOTO)
     
-    # привет Влад
-
     try:
         await dp.start_polling(bot)
     finally:
