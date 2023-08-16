@@ -5,7 +5,9 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 
 async def get_start(message: Message, bot: Bot):
-    await message.answer(f'Приветствую тебя, <b>{message.from_user.first_name}</b>.\n\nБлагодаря Конструктору вы можете создавать посты на своем сайте.\n\nНажмите на кнопку <b>меню</b>, чтобы увидеть список команд.')
+    await message.answer(
+        f'Приветствую тебя, <b>{message.from_user.first_name}</b>.\n\nБлагодаря Конструктору вы можете создавать посты на своем сайте.\n\nНажмите на кнопку <b>меню</b>, чтобы увидеть список команд.'
+        )
 
 
 async def descr_command(message: Message, bot: Bot):
@@ -15,7 +17,7 @@ async def descr_command(message: Message, bot: Bot):
 async def open_constructor(message: Message, bot: Bot):
     builder = InlineKeyboardBuilder()
     builder.row(types.InlineKeyboardButton(
-        text="Открыть конструктор", web_app=WebAppInfo(url='http://45.153.70.246:80/')
+        text="Открыть конструктор", web_app=WebAppInfo(url='https://practice-test.ru/')
         )
     )
     await message.answer(
